@@ -6,7 +6,7 @@ import torch
 import requests
 import json
 # import pandas as pd
- 
+
 app = Flask(__name__)
 
 # pytesseract.pytesseract.tesseract_cmd = "/app/.apt/usr/bin/tesseract"
