@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template
 import cv2 as cv
 import numpy as np
 import torch
@@ -10,8 +10,12 @@ app = Flask(__name__)
 model_name = 'yolo_model/best.pt'
 model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_name, force_reload=True)
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/")
 def home_view():
+        return render_template('index.html')
+
+@app.route("/predict", methods=['GET', 'POST'])
+def predict():
         if request.method == 'POST':
                 fs = request.files['file'] #.get('file')
                 frame = cv.imdecode(np.frombuffer(fs.read(), np.uint8), cv.IMREAD_UNCHANGED)
