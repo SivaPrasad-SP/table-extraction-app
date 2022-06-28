@@ -1,2 +1,14 @@
-<br><br>
-<center><p>The winner is : <b>{{ result }}</b></p></center>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>IPL match Winner Prediction</title>
+    </head>
+    <body>
+        <button><a href="http://127.0.0.1:5000/"> < Back to Home </a></button><br><br>
+                
+            {{ result|safe }}
+
+        <br><br>
+        <button><a href="http://127.0.0.1:5000/download"> Download results.csv file </a></button>
+    </body>
+</html>

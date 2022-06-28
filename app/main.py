@@ -4,6 +4,7 @@ import numpy as np
 import torch
 import requests
 import json
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -77,8 +78,11 @@ def predict():
         else:
                 print(resp.content)
         
-        response_data = {'data': {'no_of_tables ': nt, 'img_shape':img.shape, 'tbl_shape': tbl_img.shape, 'table_data': tbl_rows}}
-        return response_data
+        df = pd.DataFrame(tbl_rows[1:], columns=tbl_rows[0])
+        df_html = df.to_html()
+        
+        # response_data = {'data': {'no_of_tables ': nt, 'img_shape':img.shape, 'tbl_shape': tbl_img.shape, 'table_data': tbl_rows}}
+        return render_template("result.html", result = df_html)
 
 @app.route("/download")
 def download():

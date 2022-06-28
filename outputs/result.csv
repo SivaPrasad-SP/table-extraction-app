@@ -1,5 +1,4 @@
- DESCRIPTION UNIT PRICE AMOUNT
- Front and rear brake cables. 100.00 100.00
- New set of pedal arms 16.00. 30.00
- Labor 3hrs 5.00 18.00
- ‘Subtotal 145.00
+ ary, DESCRIPTION, UNIT PRICE, AMOUNT,
+ 1, Front and rear brake cables, 100.00, 100.00,
+ 2, New set of pedal arms, 15.00, 30.00,
+, Labor 3hrs, 5.00, 15.00,
