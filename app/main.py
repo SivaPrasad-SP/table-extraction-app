@@ -1,4 +1,4 @@
-from flask import Flask, request, Response, render_template
+from flask import Flask, request, Response, render_template, g
 import cv2 as cv
 import numpy as np
 import torch
@@ -7,6 +7,10 @@ import json
 import pandas as pd
 
 app = Flask(__name__)
+
+@app.before_request
+def before_request():
+    g.baseURL = "http://127.0.0.1:5005/"
 
 model_name = 'yolo_model/best.pt'
 model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_name, force_reload=True)
