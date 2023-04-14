@@ -63,7 +63,7 @@ def predict():
         cv.imwrite('images/tbl_roi.jpg', tbl_img)
 
         # send image to tesseract-sp & print response.
-        url = 'http://tesseract-sp.herokuapp.com/'
+        url = 'http://127.0.0.1:5000/' # 'http://tesseract-sp.herokuapp.com/'
         files = {'file': open('images/tbl_roi.jpg', 'rb')}
         resp = requests.post(url, files=files)
         if resp.status_code == 200:
